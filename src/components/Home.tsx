@@ -16,7 +16,7 @@ function Home() {
         <main className="Home" >
             {recipes.map((recipe, index) => 
             <p key={`${recipe.label}-${recipe.url}-${index}`}>
-                <h4>{recipe.label} {recipe.url}</h4>
+                {recipe.label} {recipe.url}
             </p>
             )}
         </main>

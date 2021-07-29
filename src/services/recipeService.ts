@@ -12,13 +12,18 @@ export const fetchRecipeServices = (query: any) => {
         app_id: appId,
         app_key: appKey,
         type: appType,
-        q: query,
+        q: query.q,
     }
+    // if(query.calories) {
+    //     parameters.calories = query.calories
+    //make an interface to finish the puzzzzzzzzz
+    // }
 
     return axios.get(recipeApiUrl, {
         params: parameters
         
     }).then((response) => {
+        console.log(response);
         return response.data.hits
     })
 
