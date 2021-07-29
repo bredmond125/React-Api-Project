@@ -1,6 +1,9 @@
+import "../styles/Home.css";
+
 import { useContext } from "react";
 import { RecipeContext } from "../context/RecipeContextProvider";
-import "../styles/Home.css"
+
+
 
 
 
