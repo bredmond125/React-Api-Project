@@ -1,13 +1,13 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
-import { fetchRecipeServices } from "../services/recipeService";
+import { fetchRecipeServices, RecipeResponse } from "../services/recipeService";
 
-interface Recipe {
+export interface Recipe {
     label: string,
     url: string
 }
 
 export interface RecipeContextValue  {
-    recipes: Recipe[];
+    recipes: RecipeResponse[];
     fetchNewRecipes: (query : any) => void;
 }
 
@@ -19,7 +19,7 @@ const defaultValue: RecipeContextValue = {
 export const RecipeContext = createContext(defaultValue)
 
 export function RecipeContextProvider({children} : {children: ReactNode}) {
-    const [recipes, setRecipes] = useState<Recipe[]>([
+    const [recipes, setRecipes] = useState<RecipeResponse[]>([
         
     ]);
 

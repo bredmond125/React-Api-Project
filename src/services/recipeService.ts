@@ -1,10 +1,17 @@
 import axios from "axios";
+import { Recipe } from "../context/RecipeContextProvider";
+import { Item } from "../models/Item";
+
 
 const recipeApiUrl = 'https://api.edamam.com/api/recipes/v2?';
 const appId = '045d35b5';
 const appKey = process.env.REACT_APP_RECIPE_API_KEY;
 const appType = 'public';
 
+export interface RecipeResponse {
+        recipe: Recipe;
+        
+    }
 
 export const fetchRecipeServices = (query: any) => {
 
@@ -14,9 +21,15 @@ export const fetchRecipeServices = (query: any) => {
         type: appType,
         q: query.q,
     }
+
+    
     // if(query.calories) {
     //     parameters.calories = query.calories
     //make an interface to finish the puzzzzzzzzz
+    // }
+
+    // if (query.calories) {
+    //     parameters.calories = query.calories;
     // }
 
     return axios.get(recipeApiUrl, {
@@ -24,7 +37,8 @@ export const fetchRecipeServices = (query: any) => {
         
     }).then((response) => {
         console.log(response);
-        return response.data.hits
+        console.log(response.data.hits);
+        return response.data.hits;
     })
 
 }
