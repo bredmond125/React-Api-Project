@@ -6,16 +6,18 @@ const appKey = process.env.REACT_APP_RECIPE_API_KEY;
 const appType = 'public';
 
 
-export const fetchRecipeServices = (food: string = '') => {
+export const fetchRecipeServices = (query: any) => {
+
+    const parameters = {
+        app_id: appId,
+        app_key: appKey,
+        type: appType,
+        q: query,
+    }
+
     return axios.get(recipeApiUrl, {
-        params: {
-            app_id: appId,
-            app_key: appKey,
-            type: appType,
-            q: food,
-        }
-
-
+        params: parameters
+        
     }).then((response) => {
         return response.data.hits
     })

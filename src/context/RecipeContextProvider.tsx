@@ -7,11 +7,13 @@ interface Recipe {
 }
 
 export interface RecipeContextValue  {
-    recipes: Recipe[]
+    recipes: Recipe[];
+    fetchNewRecipes: () => void;
 }
 
 const defaultValue: RecipeContextValue = {
-    recipes: []
+    recipes: [],
+    fetchNewRecipes: () => {}
 }
 
 export const RecipeContext = createContext(defaultValue)
@@ -21,6 +23,12 @@ export function RecipeContextProvider({children} : {children: ReactNode}) {
         
     ]);
 
+    function fetchNewRecipes() {
+        fetchRecipeServices('query').then((data) => {
+            setRecipes(data.recipe);
+        })
+    }
+
     useEffect(() => {
         fetchRecipeServices('food').then((data) => {
             setRecipes(data.recipe);
@@ -28,7 +36,7 @@ export function RecipeContextProvider({children} : {children: ReactNode}) {
     },[]);
 
     return (
-        <RecipeContext.Provider value={{recipes}}>
+        <RecipeContext.Provider value={{recipes, fetchNewRecipes}}>
             {children}
         </RecipeContext.Provider>
     )
