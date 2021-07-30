@@ -9,11 +9,13 @@ export interface Recipe {
 export interface RecipeContextValue  {
     recipes: RecipeResponse[];
     fetchNewRecipes: (query : any) => void;
+    recipesTwo: RecipeResponse [];
 }
 
 const defaultValue: RecipeContextValue = {
     recipes: [],
-    fetchNewRecipes: () => {}
+    fetchNewRecipes: () => {},
+    recipesTwo: []
 }
 
 export const RecipeContext = createContext(defaultValue)
@@ -22,25 +24,43 @@ export function RecipeContextProvider({children} : {children: ReactNode}) {
     const [recipes, setRecipes] = useState<RecipeResponse[]>([
         
     ]);
+    const [recipesTwo, setRecipesTwo] = useState<RecipeResponse[]>([
+        
+    ]);
 
     function fetchNewRecipes(query: any) {
+        console.log(query);
+
         const recipeObj = {
-            q: query.q
+            q: query
+            
         }
+        
+        console.log(recipeObj);
+
         fetchRecipeServices(recipeObj).then((data) => {
             setRecipes(data);
+            // console.log(data);
         })
+        
+        
     }
 
     useEffect(() => {
-        fetchRecipeServices({q: "food"}).then((data) => {
+        fetchRecipeServices({q: "Pumkin"}).then((data) => {
             setRecipes(data);
-            console.log(data);
+            // console.log(data);
+        })
+    },[]);
+    useEffect(() => {
+        fetchRecipeServices({q: "Chocolate"}).then((data) => {
+            setRecipesTwo(data);
+            // console.log(data);
         })
     },[]);
 
     return (
-        <RecipeContext.Provider value={{recipes, fetchNewRecipes}}>
+        <RecipeContext.Provider value={{recipes, fetchNewRecipes, recipesTwo}}>
             {children}
         </RecipeContext.Provider>
     )
