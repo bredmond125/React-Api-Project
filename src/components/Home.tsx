@@ -45,8 +45,10 @@ function Home() {
 
     return(
         <main className="Home" >
-            <NavLink to="/search">Search</NavLink>
-            {/* {recipes.map((recipe, index) => 
+            {/*<NavLink to="/search">Search</NavLink>
+            {recipes.map((recipe, index) => 
+            
+            {recipes.map((recipe, index) => 
             <p key={`${index}`}>
                 {recipe.recipe.label}
             </p>
