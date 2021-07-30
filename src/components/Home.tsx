@@ -2,7 +2,7 @@ import "../styles/Home.css";
 
 import { useContext } from "react";
 import { RecipeContext } from "../context/RecipeContextProvider";
-import { Item } from "../models/Item";
+import { NavLink } from "react-router-dom";
 
 
 
@@ -20,9 +20,6 @@ function Home() {
     
    
 
-    function handleQuery(random : any) {
-        console.log(fetchNewRecipes(random));
-    }
 
 
    
@@ -47,11 +44,7 @@ function Home() {
 
     return(
         <main className="Home" >
-            <form>
-                <button type="button" onClick={ () => handleQuery(pump)}>What Pepper Recipes?</button>
-                <button type="button" onClick={ () => handleQuery(pump)}>What Pepper Recipes?</button>
-
-            </form>
+            <NavLink to="/search">Search</NavLink>
             {recipes.map((recipe, index) => 
             <p key={`${index}`}>
                 {recipe.recipe.label}

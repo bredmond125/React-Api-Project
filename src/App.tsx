@@ -1,21 +1,34 @@
-
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import React from 'react';
 import './App.css';
 import Home from './components/Home';
+import SearchForm from './components/SearchForm';
 import { RecipeContext, RecipeContextProvider } from './context/RecipeContextProvider';
+import Header from './components/Header';
 
 function App() {
   return (
-    <div className="App">
-      
-    {/* TODO: Create a homepage... with a form 
-        homepage will include a search bar, check boxes, and slider scale.  */}
-    
-    {/* TODO: On the homepage create a top "featured" image to show the user feature picks */}
+
+    <Router>
+      <Header/>
+      <Route path="/" exact>
         <RecipeContextProvider>
           <Home/>
         </RecipeContextProvider>
-    </div>
+      </Route>
+      <Switch>
+        <Route path="/search" exact>
+          <RecipeContextProvider>
+            <SearchForm/>
+          </RecipeContextProvider>
+        </Route>
+      </Switch>
+    </Router>
+    
+      
+    
+        
+    
   );
 }
 

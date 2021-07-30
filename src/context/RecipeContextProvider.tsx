@@ -1,10 +1,6 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { fetchRecipeServices, RecipeResponse } from "../services/recipeService";
 
-export interface Recipe {
-    label: string,
-    url: string
-}
 
 export interface RecipeContextValue  {
     recipes: RecipeResponse[];

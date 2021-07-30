@@ -1,6 +1,6 @@
 import axios from "axios";
-import { Recipe } from "../context/RecipeContextProvider";
-import { Item } from "../models/Item";
+
+import { Recipe } from "../models/Item";
 
 
 const recipeApiUrl = 'https://api.edamam.com/api/recipes/v2?';
