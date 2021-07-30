@@ -10,7 +10,6 @@ const appType = 'public';
 
 export interface RecipeResponse {
         recipe: Recipe;
-        
     }
 
 export const fetchRecipeServices = (query: any) => {

@@ -11,10 +11,23 @@ export interface RecipeContextValue  {
 const defaultValue: RecipeContextValue = {
     recipes: [],
     fetchNewRecipes: () => {},
-    recipesTwo: []
+    recipesTwo: [],
 }
 
-export const RecipeContext = createContext(defaultValue)
+export const RecipeContext = createContext(defaultValue);
+
+export function createNewRecipeCategory(query: any) {
+    const qValue = {
+        q: query
+    }
+
+    let newCategoryArray: RecipeResponse[] = [];
+
+    fetchRecipeServices(qValue).then((data) => {
+        newCategoryArray = data;
+    })
+    return newCategoryArray
+};
 
 export function RecipeContextProvider({children} : {children: ReactNode}) {
     const [recipes, setRecipes] = useState<RecipeResponse[]>([
@@ -25,11 +38,11 @@ export function RecipeContextProvider({children} : {children: ReactNode}) {
     ]);
 
     function fetchNewRecipes(query: any) {
+        
         console.log(query);
 
         const recipeObj = {
             q: query
-            
         }
         
         console.log(recipeObj);
@@ -43,7 +56,7 @@ export function RecipeContextProvider({children} : {children: ReactNode}) {
     }
 
     useEffect(() => {
-        fetchRecipeServices({q: "Pumkin"}).then((data) => {
+        fetchRecipeServices({q: "Pumpkin"}).then((data) => {
             setRecipes(data);
             // console.log(data);
         })

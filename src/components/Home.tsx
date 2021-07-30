@@ -3,6 +3,7 @@ import "../styles/Home.css";
 import { useContext } from "react";
 import { RecipeContext } from "../context/RecipeContextProvider";
 import { NavLink } from "react-router-dom";
+import RecipeList from "./RecipeList";
 
 
 
@@ -45,7 +46,7 @@ function Home() {
     return(
         <main className="Home" >
             <NavLink to="/search">Search</NavLink>
-            {recipes.map((recipe, index) => 
+            {/* {recipes.map((recipe, index) => 
             <p key={`${index}`}>
                 {recipe.recipe.label}
             </p>
@@ -54,8 +55,11 @@ function Home() {
             <p key={`${index}`}>
                 {recipe.recipe.label}
             </p>
-            )}
+            )} */}
             
+            <RecipeList title='Pumpkin Season is Coming' query='pumpkin'/>
+            <RecipeList title='Because Greg Likes Peppers' query='pepper' />
+            <RecipeList title='Apples: Your Favorite Variable' query='apple' />
 
 
         </main>
