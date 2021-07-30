@@ -25,7 +25,7 @@ function SearchForm() {
 
     return(
         <div className="SearchForm">
-            <Link to="/">Home</Link>
+            
             <form>
                 <button type="button" onClick={ () => handleQuery(pepper)}>What Pepper Recipes?</button>
                 <button type="button" onClick={ () => handleQuery(taco)}>What Taco Recipes?</button>
