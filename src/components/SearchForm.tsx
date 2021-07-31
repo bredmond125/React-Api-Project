@@ -13,7 +13,7 @@ function SearchForm() {
     let hide: string = "Hide"
 
 
-    const { recipes, fetchNewRecipes, recipesTwo } = useContext(RecipeContext);
+    const { recipes, fetchNewRecipes } = useContext(RecipeContext);
 
     function handleQuery(random : any) {
         setShow(true)

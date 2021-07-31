@@ -1,7 +1,5 @@
 import axios from "axios";
-
 import { Recipe } from "../models/Item";
-
 
 const recipeApiUrl = 'https://api.edamam.com/api/recipes/v2?';
 const appId = '045d35b5';
@@ -21,14 +19,9 @@ export const fetchRecipeServices = (query: any) => {
         q: query.q,
     }
 
-    
     // if(query.calories) {
     //     parameters.calories = query.calories
     //make an interface to finish the puzzzzzzzzz
-    // }
-
-    // if (query.calories) {
-    //     parameters.calories = query.calories;
     // }
 
     return axios.get(recipeApiUrl, {
@@ -39,5 +32,4 @@ export const fetchRecipeServices = (query: any) => {
         console.log(response.data.hits);
         return response.data.hits;
     })
-
 }

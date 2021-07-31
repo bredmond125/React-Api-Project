@@ -1,17 +1,16 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { fetchRecipeServices, RecipeResponse } from "../services/recipeService";
 
-
 export interface RecipeContextValue  {
     recipes: RecipeResponse[];
     fetchNewRecipes: (query : any) => void;
-    recipesTwo: RecipeResponse [];
+    //recipesTwo: RecipeResponse [];
 }
 
 const defaultValue: RecipeContextValue = {
     recipes: [],
     fetchNewRecipes: () => {},
-    recipesTwo: [],
+    //recipesTwo: [],
 }
 
 export const RecipeContext = createContext(defaultValue);
@@ -61,15 +60,15 @@ export function RecipeContextProvider({children} : {children: ReactNode}) {
             // console.log(data);
         })
     },[]);
-    useEffect(() => {
-        fetchRecipeServices({q: "Chocolate"}).then((data) => {
-            setRecipesTwo(data);
-            // console.log(data);
-        })
-    },[]);
+    // useEffect(() => {
+    //     fetchRecipeServices({q: "Chocolate"}).then((data) => {
+    //         setRecipesTwo(data);
+    //         // console.log(data);
+    //     })
+    // },[]);
 
     return (
-        <RecipeContext.Provider value={{recipes, fetchNewRecipes, recipesTwo}}>
+        <RecipeContext.Provider value={{recipes, fetchNewRecipes}}>
             {children}
         </RecipeContext.Provider>
     )
