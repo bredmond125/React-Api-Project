@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { RecipeContext } from "../context/RecipeContextProvider";
 import { NavLink } from "react-router-dom";
 import RecipeList from "./RecipeList";
-import TestForm from "./TestForm";
+import TestForm from "./TestForm2.0";
 import { Search } from "@material-ui/icons";
 import SearchForm from "./SearchForm";
 import { ModalContext } from "../context/ModalContextProvider";
@@ -22,9 +22,9 @@ function Home() {
             </div>
             
             
-            <RecipeList title='Pumpkin Season is Coming' query='pumpkin'/>
-            <RecipeList title='Because Greg Likes Peppers' query='pepper' />
-            <RecipeList title='Apples: Your Favorite Variable' query='apple' />
+           {/* <RecipeList title='Pumpkin Season is Coming' query='pumpkin'/> */}
+           {/* <RecipeList title='Because Greg Likes Peppers' query='pepper' /> */} 
+            {/* <RecipeList title='Apples: Your Favorite Variable' query='apple' /> */}
 
         </main>
     );
