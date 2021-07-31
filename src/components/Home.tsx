@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { RecipeContext } from "../context/RecipeContextProvider";
 import { NavLink } from "react-router-dom";
 import RecipeList from "./RecipeList";
+import TestForm from "./TestForm";
 
 function Home() {
 
@@ -10,6 +11,8 @@ function Home() {
 
     return(
         <main className="Home" >
+
+            <TestForm />
             
             <RecipeList title='Pumpkin Season is Coming' query='pumpkin'/>
             <RecipeList title='Because Greg Likes Peppers' query='pepper' />

@@ -28,8 +28,8 @@ export const fetchRecipeServices = (query: any) => {
         params: parameters
         
     }).then((response) => {
-        console.log(response);
-        console.log(response.data.hits);
+        // console.log(response);
+        // console.log(response.data.hits);
         return response.data.hits;
     })
 }
