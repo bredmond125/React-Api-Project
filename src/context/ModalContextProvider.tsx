@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 
 export interface ModalContextValue  {
     showForm: boolean;
@@ -21,7 +21,14 @@ export function ModalContextProdiver({ children }: {children:ReactNode}) {
     
     function toggleModal () {
         setShowForm(!showForm);
+        console.log("Toggle Works...");
+        console.log(showForm);
     }
+
+    useEffect(() => {
+        setShowForm(!showForm);
+      }, [showForm]); // Only re-run the effect if count changes
+
     return(
         <ModalContext.Provider value={{showForm, toggleModal}}>
             {children}

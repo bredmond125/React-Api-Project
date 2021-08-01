@@ -10,9 +10,9 @@ import { ModalContext } from "../context/ModalContextProvider";
 
 
 function Header() {
-    const {showForm, toggleModal} =useContext(ModalContext);
+    const {showForm, toggleModal} = useContext(ModalContext);
     
-    
+    console.log(showForm);
 
     return(
         <header className="Header">
