@@ -1,5 +1,12 @@
 .RecipeCard-container {
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding: 20px;
+}
+
+/* gets rid of scrollbar */
+.RecipeCard-container::-webkit-scrollbar {
+  display: none;
 }

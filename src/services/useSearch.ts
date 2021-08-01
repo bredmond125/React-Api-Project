@@ -15,8 +15,10 @@ function useSearch(paramObject: any) {
             setFilteredRecipes(response.data.hits);
         }) 
     }, [paramObject]);
-   
+    
+    console.table(filteredRecipes);
     return filteredRecipes;
+
 }
 
 export default useSearch;

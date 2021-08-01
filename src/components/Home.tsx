@@ -4,6 +4,7 @@ import TestForm from "./TestForm2.0";
 import SearchForm from "./SearchForm";
 import { ModalContext } from "../context/ModalContextProvider";
 import { useState } from "react";
+import RecipeList from "./RecipeList";
 
 function Home() {
     
@@ -29,7 +30,7 @@ function Home() {
             
             
             
-           {/* <RecipeList title='Pumpkin Season is Coming' query='pumpkin'/> */}
+           <RecipeList title='Pumpkin Season is Coming' query='pumpkin'/>
            {/* <RecipeList title='Because Greg Likes Peppers' query='pepper' /> */} 
             {/* <RecipeList title='Apples: Your Favorite Variable' query='apple' /> */}
 

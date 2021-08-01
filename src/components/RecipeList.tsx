@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { fetchRecipeServices, RecipeResponse } from '../services/recipeService';
 import RecipeCard from './RecipeCard';
 import '../styles/RecipeList.css';
@@ -22,7 +22,10 @@ function RecipeList({title, query}: Props) {
         })
     };
 
-    createNewRecipeCategory(query);
+    useEffect(() => {
+        createNewRecipeCategory(query); 
+    }, [query] );
+   
  
     return (
         <section className="RecipeList">

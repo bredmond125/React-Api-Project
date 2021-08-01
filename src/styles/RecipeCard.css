@@ -9,6 +9,12 @@
   color: black;
   text-align: center;
   margin: 0px 10px;
+  object-fit: contain;
+  transition: transform 450ms;
+}
+
+.RecipeCard .card-container:hover {
+  transform: scale(1.08);
 }
 
 .RecipeCard img {
