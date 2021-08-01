@@ -3,27 +3,27 @@ import { useContext } from "react";
 import TestForm from "./TestForm2.0";
 import SearchForm from "./SearchForm";
 import { ModalContext } from "../context/ModalContextProvider";
-import { useState } from "react";
+
 
 function Home() {
     
     
      
     // const { recipes, fetchNewRecipes } = useContext(RecipeContext);
-    //const {showForm, toggleModal} = useContext(ModalContext);
+    const {showForm, toggleModal} = useContext(ModalContext);
 
     
    
-
+    console.log(showForm)
     
     
     return(
         <main className="Home" >
-            {/*<div className="FormModal" style={{ display: showForm ? "block" : "none"}} > */}
+            <div className="FormModal" style={{ display: showForm ? "block" : "none"}} >
             
             <SearchForm/>
         
-           {/*} </div> */}
+          </div>
 
             <TestForm />
             
