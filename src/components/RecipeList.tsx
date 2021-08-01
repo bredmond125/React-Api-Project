@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { fetchRecipeServices, RecipeResponse } from '../services/recipeService';
 import RecipeCard from './RecipeCard';
+import '../styles/RecipeList.css';
 
 interface Props {
     title: string;
@@ -26,6 +27,7 @@ function RecipeList({title, query}: Props) {
     return (
         <section className="RecipeList">
             <h3 className="RecipeList__title">{title}</h3>
+            <div className="RecipeCard-container">
             {recipeArray.map((recipe, index) => 
                 <RecipeCard
                 key={`${recipe.recipe.label}-${index}`}
@@ -34,6 +36,7 @@ function RecipeList({title, query}: Props) {
                 url={recipe.recipe.url}
                 />
             )}
+            </div>
         </section>
     )
 }

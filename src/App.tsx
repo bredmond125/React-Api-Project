@@ -11,23 +11,23 @@ function App() {
   return (
 
     <Router>
-      <ModalContextProdiver>
+     {/* <ModalContextProdiver>*/} 
         <Header/>
-      </ModalContextProdiver>
+     {/* </ModalContextProdiver>*/} 
       
       <Route path="/" exact>
         <RecipeContextProvider>
-          <ModalContextProdiver> 
+          {/* <ModalContextProdiver>*/} 
             <Home/>
-          </ModalContextProdiver>
+         {/* </ModalContextProdiver> */}
         </RecipeContextProvider>
       </Route>
       <Switch>
         <Route path="/search" exact>
           <RecipeContextProvider>
-            <ModalContextProdiver>
+            {/*<ModalContextProdiver> */}
               <SearchForm/>
-            </ModalContextProdiver>
+            {/* </RecipeContextProvider></ModalContextProdiver>*/}
           </RecipeContextProvider>
         </Route>
       </Switch>

@@ -10,7 +10,7 @@ function Home() {
     
      
     // const { recipes, fetchNewRecipes } = useContext(RecipeContext);
-    const {showForm, toggleModal} = useContext(ModalContext);
+    //const {showForm, toggleModal} = useContext(ModalContext);
 
     
    
@@ -19,11 +19,11 @@ function Home() {
     
     return(
         <main className="Home" >
-            <div className="FormModal" style={{ display: showForm ? "block" : "none"}} >
+            {/*<div className="FormModal" style={{ display: showForm ? "block" : "none"}} > */}
             
             <SearchForm/>
         
-            </div>
+           {/*} </div> */}
 
             <TestForm />
             

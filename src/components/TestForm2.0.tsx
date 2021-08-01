@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react'
 import useSearch from '../services/useSearch';
 import RecipeCard from './RecipeCard';
+import '../styles/RecipeList.css';
+
 
 function TestForm() {
     const appType = 'public';
@@ -118,6 +120,7 @@ function TestForm() {
             </form>
         
             <h2>Search Results</h2>
+            <div className="RecipeCard-container">
             {searchResult.map((recipe, index) => 
                 <RecipeCard
                 key={`${recipe.recipe.label}-${index}`}
@@ -126,8 +129,7 @@ function TestForm() {
                 url={recipe.recipe.url}
                 />
             )}
-
-
+            </div>
         </div>
     )
 }

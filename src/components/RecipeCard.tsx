@@ -1,4 +1,4 @@
-
+import '../styles/RecipeCard.css';
 interface Props {
     label: string;
     image: any;
