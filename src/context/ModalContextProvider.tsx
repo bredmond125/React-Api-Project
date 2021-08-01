@@ -20,13 +20,16 @@ export function ModalContextProdiver({ children }: {children:ReactNode}) {
     
     
     function toggleModal () {
-        setShowForm(!showForm);
-        console.log("Toggle Works...");
         console.log(showForm);
+        console.log("Toggle Works...");
+        setShowForm(!showForm);
+        console.log(showForm)
+
+        
     }
 
     useEffect(() => {
-        setShowForm(!showForm);
+        
       }, [showForm]); // Only re-run the effect if count changes
 
     return(

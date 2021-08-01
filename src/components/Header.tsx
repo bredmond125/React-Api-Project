@@ -4,15 +4,19 @@ import { NavLink } from "react-router-dom";
 import FavoriteRoundedIcon from '@material-ui/icons/FavoriteRounded';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import { useContext, useState } from "react";
-import SearchForm from "./SearchForm";
 import { ModalContext } from "../context/ModalContextProvider";
 
 
 
 function Header() {
-    //const {showForm, toggleModal} = useContext(ModalContext);
+    const {showForm, toggleModal} = useContext(ModalContext);
     
-    //console.log(showForm);
+    // const [showToggle, setShowToggle] = useState(showForm);
+    
+
+    console.log(showForm)
+
+   
 
     return(
         <header className="Header">
@@ -25,7 +29,7 @@ function Header() {
                     <NavLink to="/Favorites"><FavoriteRoundedIcon className="Fav"/></NavLink>
                     <NavLink to="/Search"><SearchRoundedIcon className="Search"/></NavLink>
 
-                   {/* <button className="ButtonModal" onClick={toggleModal}><SearchRoundedIcon/></button> */}
+                   <button className="ButtonModal" onClick={toggleModal}><SearchRoundedIcon/></button>
                 </div>
                 
                 
