@@ -19,7 +19,7 @@ function RecipeCard({label, image, url}: Props) {
         url
     }
 
-   function handleAdd(newFavorite: Props) {
+   function handleAdd(newFavorite: Props): any {
        addFavorite(newFavorite)
    }
 

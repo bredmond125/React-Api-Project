@@ -2,24 +2,27 @@ import React, { useRef, useState } from 'react'
 import useSearch from '../services/useSearch';
 import RecipeCard from './RecipeCard';
 import '../styles/RecipeList.css';
+import axios from 'axios';
 
 
 function TestForm() {
+    const recipeApiUrl = 'https://api.edamam.com/api/recipes/v2?';
     const appType = 'public';
     const appId = '045d35b5';
     const appKey = process.env.REACT_APP_RECIPE_API_KEY;
 
-    const foodRef: any = useRef(null);
-    const cuisineRef: any = useRef(false);
-    const mealRef = useRef(null);
-    const caloriesRef: any = useRef(null);
+    //const foodRef: any = useRef(null);
+    //const cuisineRef: any = useRef(false);
+    //const mealRef = useRef(null);
+    //const caloriesRef: any = useRef(null);
     const healthRef: any = useRef(false);
 
     const [food, setFood] = useState('food');
     const [cuisine, setCuisine] = useState('');
     const [meal, setMeal] = useState('');
     const [calories, setCalories] = useState(0);
-    const [checked, setChecked] = useState(false);
+    //const [checked, setChecked] = useState(false);
+    const [searchArray, setSearchArray] = useState<any[]>([]);
     
 
     let paramObject = {
@@ -41,51 +44,62 @@ function TestForm() {
         calories: `0-${calories}`
     }
 
+    //setFood(foodRef.current?.value.length > 0 ? foodRef.current?.value : "food");
+//setCalories(caloriesRef.current?.value);
     
-    if (cuisine.length > 0) {
-        paramObject = {...paramObject, ...cuisineObject}
-    }
-
-    if (meal.length > 0) {
-        paramObject = {...paramObject, ...mealObject}
-    }
-
-    if (calories > 0) {
-        paramObject = {...paramObject, ...caloriesObject}
-    }
-
-    const handleClick = () => setChecked(!checked);
+    //const handleClick = () => setChecked(!checked);
 
     const generateSearch = (e: any): void => {
         
         e.preventDefault();
         
-        setFood(foodRef.current?.value.length > 0 ? foodRef.current?.value : "food");  
-        setCalories(caloriesRef.current?.value);
-        
-        console.log(paramObject);
-    }
-
-    function handleCheck(option: string) {
-        let healthObject = {
-            health: option
-        };
        
-        paramObject = {...paramObject, ...healthObject};
-        console.log(healthObject);
-        console.log(paramObject);
+        
+        if (cuisine.length > 0) {
+        paramObject = {...paramObject, ...cuisineObject}
+        }
 
+        if (meal.length > 0) {
+        paramObject = {...paramObject, ...mealObject}
+        }
+
+         
+        
+
+        if (calories > 0) {
+        paramObject = {...paramObject, ...caloriesObject}
+        }
+
+        
+        axios.get(recipeApiUrl, {
+            params: paramObject
+            }).then((response) => {
+                console.log(response.data.hits);
+                setSearchArray(response.data.hits);
+            }) 
     }
 
+    // function handleCheck(option: string) {
+    //     let healthObject = {
+    //         health: option
+    //     };
+       
+    //     paramObject = {...paramObject, ...healthObject};
+    //     console.log(healthObject);
+    //     console.log(paramObject);
+
+    // }
+
+    
 
 
     // onChange={ (e) => e.target.checked ? handleCheck('vegan') : console.log('stuff')}
-       const searchResult: any[] = useSearch(paramObject);
+       //const searchResult: any[] = useSearch(paramObject);
 
     return (
         <div>
             <form>
-                <input placeholder="food" ref={foodRef}/>
+                <input placeholder="food" onChange={ (e) => setFood(e.target.value) }/>
 
                 <input type="radio" name="cuisine" id="American" value="American" onChange={ (e) => setCuisine(e.target.value) }/>
                 <label htmlFor="American">American</label>
@@ -101,14 +115,14 @@ function TestForm() {
                 <input type="radio" name="meal" id="Dinner" value="Dinner" onChange={ (e) => setMeal(e.target.value) }/>
                 <label htmlFor="Dinner">Dinner</label>
 
-                <input type="checkbox" name="health" id="vegan" value="vegan" onClick={handleClick} checked={checked} ref={healthRef}/>
+                <input type="checkbox" name="health" id="vegan" value="vegan"  ref={healthRef}/>
                 <label htmlFor="vegan">Vegan</label>
                 <input type="checkbox" name="health" id="gluten-free" value="gluten-free" ref={healthRef} onChange={ (e) => console.log(e.target.value) }/>
                 <label htmlFor="gluten-free">Gluten-free</label>
                 <input type="checkbox" name="health" id="dairy-free" value="dairy-free" ref={healthRef} onChange={ (e) => console.log(e.target.value) }/>
                 <label htmlFor="dairy-free">Dairy-free</label>
 
-                <input type="range" id="calories" name="calories" min="0" max="5000" ref={caloriesRef} />
+                <input type="range" id="calories" name="calories" min="0" max="5000" onChange={ (e) => setCalories(Number(e.target.value)) } />
                 <label htmlFor="calories">Calories</label>
                 
                 <button onClick={generateSearch}>Search</button>
@@ -116,7 +130,7 @@ function TestForm() {
         
             <h2>Search Results</h2>
             <div className="RecipeCard-container">
-            {searchResult.map((recipe, index) => 
+            {searchArray.map((recipe, index) => 
                 <RecipeCard
                 key={`${recipe.recipe.label}-${index}`}
                 label={recipe.recipe.label}
