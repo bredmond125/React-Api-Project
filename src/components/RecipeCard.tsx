@@ -1,11 +1,16 @@
+import { useState } from 'react';
 import '../styles/RecipeCard.css';
-interface Props {
+export interface Props {
     label: string;
     image: any;
     url: string;
+    
 }
 
+
 function RecipeCard({label, image, url}: Props) {
+
+   
 
     return(
         <div className="RecipeCard">
@@ -20,6 +25,9 @@ function RecipeCard({label, image, url}: Props) {
                 </div>
                 <div className="link-container">
                     <a href={url} target="_blank">Original Recipe</a>  
+                </div>
+                <div>
+                   
                 </div>
             </div>
 
