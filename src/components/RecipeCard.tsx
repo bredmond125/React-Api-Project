@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { FavoriteContext } from '../context/FavoritesContextProvider';
 import '../styles/RecipeCard.css';
 export interface Props {
     label: string;
@@ -10,7 +11,17 @@ export interface Props {
 
 function RecipeCard({label, image, url}: Props) {
 
-   
+   const {favorites, addFavorite} = useContext(FavoriteContext);
+
+    const newFavorite = {
+        label, 
+        image,
+        url
+    }
+
+   function handleAdd(newFavorite: Props) {
+       addFavorite(newFavorite)
+   }
 
     return(
         <div className="RecipeCard">
@@ -27,7 +38,7 @@ function RecipeCard({label, image, url}: Props) {
                     <a href={url} target="_blank">Original Recipe</a>  
                 </div>
                 <div>
-                   
+                   <button onClick={handleAdd(newFavorite)}>Add Favorite</button>
                 </div>
             </div>
 
