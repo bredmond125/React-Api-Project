@@ -3,12 +3,8 @@ import { useContext } from "react";
 import TestForm from "./TestForm2.0";
 import SearchForm from "./SearchForm";
 import { ModalContext } from "../context/ModalContextProvider";
-<<<<<<< HEAD
 import { useState } from "react";
 import RecipeList from "./RecipeList";
-=======
-
->>>>>>> ec27855ea13e0042c4029e64346620dbbe407ba5
 
 function Home() {
     

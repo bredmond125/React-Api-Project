@@ -10,15 +10,18 @@ function TestForm() {
     const appKey = process.env.REACT_APP_RECIPE_API_KEY;
 
     const foodRef: any = useRef(null);
-    const cuisineRef: any = useRef(null);
+    const cuisineRef: any = useRef(false);
     const mealRef = useRef(null);
     const caloriesRef: any = useRef(null);
+    const healthRef: any = useRef(false);
 
     const [food, setFood] = useState('food');
     const [cuisine, setCuisine] = useState('');
     const [meal, setMeal] = useState('');
     const [calories, setCalories] = useState(0);
-  
+    const [checked, setChecked] = useState(false);
+    
+
     let paramObject = {
             app_id: appId,
             app_key: appKey,
@@ -26,24 +29,19 @@ function TestForm() {
             q: food,
         };
 
-    let cuisineObject = {
+    const cuisineObject = {
         cuisineType: cuisine
     }
 
-    let mealObject = {
+    const mealObject = {
         mealType: meal
     }
     
-    let caloriesObject = {
+    const caloriesObject = {
         calories: `0-${calories}`
     }
 
-    // let healthArray: any = [];
-
-    // let healthObject = {
-    //     health: healthArray
-    // }
-
+    
     if (cuisine.length > 0) {
         paramObject = {...paramObject, ...cuisineObject}
     }
@@ -56,24 +54,17 @@ function TestForm() {
         paramObject = {...paramObject, ...caloriesObject}
     }
 
-    // if (healthArray.length > 0) {
-    //     paramObject = {...paramObject, ...healthObject}
-    // }
+    const handleClick = () => setChecked(!checked);
 
-    const searchResult: any[] = useSearch(paramObject);
-
-    const generateSearch = (e: any) => {
+    const generateSearch = (e: any): void => {
+        
         e.preventDefault();
         
         setFood(foodRef.current?.value.length > 0 ? foodRef.current?.value : "food");  
         setCalories(caloriesRef.current?.value);
-        console.log(food);
+        
         console.log(paramObject);
-        console.log(searchResult);
-        console.log(calories)
     }
-   
-    console.log(cuisine);
 
     function handleCheck(option: string) {
         let healthObject = {
@@ -85,7 +76,11 @@ function TestForm() {
         console.log(paramObject);
 
     }
-   
+
+
+
+    // onChange={ (e) => e.target.checked ? handleCheck('vegan') : console.log('stuff')}
+       const searchResult: any[] = useSearch(paramObject);
 
     return (
         <div>
@@ -106,11 +101,11 @@ function TestForm() {
                 <input type="radio" name="meal" id="Dinner" value="Dinner" onChange={ (e) => setMeal(e.target.value) }/>
                 <label htmlFor="Dinner">Dinner</label>
 
-                <input type="checkbox" name="health" id="vegan" value="vegan" onChange={ (e) => e.target.checked ? handleCheck('vegan') : console.log('stuff')}/>
+                <input type="checkbox" name="health" id="vegan" value="vegan" onClick={handleClick} checked={checked} ref={healthRef}/>
                 <label htmlFor="vegan">Vegan</label>
-                <input type="checkbox" name="health" id="gluten-free" value="gluten-free" onChange={ (e) => console.log(e.target.value) }/>
+                <input type="checkbox" name="health" id="gluten-free" value="gluten-free" ref={healthRef} onChange={ (e) => console.log(e.target.value) }/>
                 <label htmlFor="gluten-free">Gluten-free</label>
-                <input type="checkbox" name="health" id="dairy-free" value="dairy-free" onChange={ (e) => console.log(e.target.value) }/>
+                <input type="checkbox" name="health" id="dairy-free" value="dairy-free" ref={healthRef} onChange={ (e) => console.log(e.target.value) }/>
                 <label htmlFor="dairy-free">Dairy-free</label>
 
                 <input type="range" id="calories" name="calories" min="0" max="5000" ref={caloriesRef} />

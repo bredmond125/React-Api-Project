@@ -16,7 +16,6 @@ function useSearch(paramObject: any) {
         }) 
     }, [paramObject]);
     
-    console.table(filteredRecipes);
     return filteredRecipes;
 
 }
