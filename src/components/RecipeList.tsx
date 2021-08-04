@@ -39,6 +39,7 @@ function RecipeList({title, query}: Props) {
                 label={recipe.recipe.label}
                 image={recipe.recipe.image}
                 url={recipe.recipe.url}
+                
                 />
             )}
             </div>

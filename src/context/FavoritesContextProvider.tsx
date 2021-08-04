@@ -15,9 +15,9 @@ const defaultValue: FavoriteContextValue = {
     addFavorite: () => {}
 }
 
-export const FavoriteContext = createContext(defaultValue);
+export const FavoritesContext = createContext(defaultValue);
 
-function FavoritesContextProvider({children}: {children: ReactNode}) {
+export function FavoritesContextProvider({children}: {children: ReactNode}) {
 
     const [favorites, setFavorite] = useState<any[]>([])
 
@@ -29,8 +29,8 @@ function FavoritesContextProvider({children}: {children: ReactNode}) {
     }
 
     return (
-        <FavoriteContext.Provider value={{favorites, addFavorite}}>
+        <FavoritesContext.Provider value={{favorites, addFavorite}}>
             {children}
-        </FavoriteContext.Provider>
+        </FavoritesContext.Provider>
     )
 }

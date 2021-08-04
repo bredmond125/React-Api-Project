@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { FavoriteContext } from '../context/FavoritesContextProvider';
+import { FavoritesContext } from '../context/FavoritesContextProvider';
 import '../styles/RecipeCard.css';
 export interface Props {
     label: string;
@@ -11,7 +11,7 @@ export interface Props {
 
 function RecipeCard({label, image, url}: Props) {
 
-   const {favorites, addFavorite} = useContext(FavoriteContext);
+   const {favorites, addFavorite} = useContext(FavoritesContext);
 
     const newFavorite = {
         label, 
@@ -21,7 +21,10 @@ function RecipeCard({label, image, url}: Props) {
 
    function handleAdd(newFavorite: Props): any {
        addFavorite(newFavorite)
+    //    console.log("Works")
    }
+//    console.log(favorites);
+  
 
     return(
         <div className="RecipeCard">

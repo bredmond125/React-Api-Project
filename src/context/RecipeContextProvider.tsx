@@ -32,9 +32,7 @@ export function RecipeContextProvider({children} : {children: ReactNode}) {
     const [recipes, setRecipes] = useState<RecipeResponse[]>([
         
     ]);
-    const [recipesTwo, setRecipesTwo] = useState<RecipeResponse[]>([
-        
-    ]);
+    
 
     function fetchNewRecipes(query: any) {
         
