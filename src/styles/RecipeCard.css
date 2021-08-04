@@ -8,7 +8,7 @@
   background-color: rgba(245, 245, 245, 0.934);
   color: black;
   text-align: center;
-  margin: 0px 10px;
+  margin: 10px 10px;
   object-fit: contain;
   transition: transform 450ms;
 }

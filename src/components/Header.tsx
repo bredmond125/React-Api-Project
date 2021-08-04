@@ -27,7 +27,7 @@ function Header() {
                 </div>
                 <div className="Extras">
                     <NavLink to="/Favorites"><FavoriteRoundedIcon className="Fav"/></NavLink>
-                    <NavLink to="/Search"><SearchRoundedIcon className="Search"/></NavLink>
+                    <NavLink to="/FilterRecipes"><SearchRoundedIcon className="Search"/></NavLink>
 
                    <button className="ButtonModal" onClick={toggleModal}><SearchRoundedIcon/></button>
                 </div>

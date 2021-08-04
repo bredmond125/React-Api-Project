@@ -6,6 +6,7 @@ import SearchForm from './components/SearchForm';
 import { RecipeContext, RecipeContextProvider } from './context/RecipeContextProvider';
 import Header from './components/Header';
 import { ModalContextProdiver } from './context/ModalContextProvider';
+import FilterRecipes from './components/FilterRecipes';
 
 function App() {
   return (
@@ -23,12 +24,8 @@ function App() {
         </RecipeContextProvider>
       </Route>
       <Switch>
-        <Route path="/search" exact>
-          <RecipeContextProvider>
-            <ModalContextProdiver>
-              <SearchForm/>
-            </ModalContextProdiver>
-          </RecipeContextProvider>
+        <Route path="/FilterRecipes" exact>
+          <FilterRecipes />
         </Route>
       </Switch>
     </Router>
