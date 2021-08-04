@@ -21,9 +21,11 @@ function RecipeCard({label, image, url}: Props) {
 
    function handleAdd(newFavorite: Props): any {
        addFavorite(newFavorite)
-    //    console.log("Works")
+       console.log("Works")
+       console.log(newFavorite)
+       
    }
-//    console.log(favorites);
+   console.log(favorites);
   
 
     return(
@@ -41,7 +43,7 @@ function RecipeCard({label, image, url}: Props) {
                     <a href={url} target="_blank">Original Recipe</a>  
                 </div>
                 <div>
-                   <button onClick={handleAdd(newFavorite)}>Add Favorite</button>
+                   <button onClick={() => {handleAdd(newFavorite)}}>Add Favorite</button>
                 </div>
             </div>
 

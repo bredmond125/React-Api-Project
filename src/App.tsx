@@ -20,14 +20,16 @@ function App() {
       
       <Route path="/" exact>
         <RecipeContextProvider>
-          <ModalContextProdiver> 
+          <FavoritesContextProvider>
             <Home/>
-         </ModalContextProdiver>
+          </FavoritesContextProvider>
         </RecipeContextProvider>
       </Route>
       <Switch>
         <Route path="/FilterRecipes" exact>
-          <FilterRecipes />
+          <FavoritesContextProvider>
+            <FilterRecipes />
+          </FavoritesContextProvider>
         </Route>
         <Route path="/Favorites" exact>
           <RecipeContextProvider>
