@@ -12,10 +12,9 @@ function ViewFilteredRecipes({filteredRecipes}: Props) {
             <div className="filtered-recipes-container">
                 {filteredRecipes.map((recipe, index) => 
                     <RecipeCard
-                    key={`${recipe.recipe.label}-${index}`}
-                    label={recipe.recipe.label}
-                    image={recipe.recipe.image}
-                    url={recipe.recipe.url}
+                    key={`${recipe.label}-${index}`}
+                    recipe={recipe}
+                    
                     />
                 )}
             </div>

@@ -1,25 +1,21 @@
 import { useContext, useState } from 'react';
 import { FavoritesContext } from '../context/FavoritesContextProvider';
+import { Recipe } from '../models/Item';
 import '../styles/RecipeCard.css';
 export interface Props {
-    label: string;
-    image: any;
-    url: string;
-    
+    recipe: Recipe;
 }
 
 
-function RecipeCard({label, image, url}: Props) {
+
+function RecipeCard({recipe}: Props) {
 
    const {favorites, addFavorite} = useContext(FavoritesContext);
 
-    const newFavorite = {
-        label, 
-        image,
-        url
-    }
+    const newFavorite = recipe;
+    
 
-   function handleAdd(newFavorite: Props): any {
+   function handleAdd(newFavorite: Recipe): any {
        addFavorite(newFavorite)
        console.log("Works")
        console.log(newFavorite)
@@ -32,15 +28,15 @@ function RecipeCard({label, image, url}: Props) {
         <div className="RecipeCard">
             <div className="card-container">
                 <div className="image-container">
-                    <img src={image} alt="Food"/>
+                    <img src={recipe.image} alt="Food"/>
                 </div>
                 <div className="label-container">
                     <p className="card-label">
-                        {label}
+                        {recipe.label}
                     </p>
                 </div>
                 <div className="link-container">
-                    <a href={url} target="_blank">Original Recipe</a>  
+                    <a href={recipe.url} target="_blank">Original Recipe</a>  
                 </div>
                 <div>
                    <button onClick={() => {handleAdd(newFavorite)}}>Add Favorite</button>

@@ -25,9 +25,7 @@ function Favorites() {
                     {favorites.map((recipe, index) => 
                         <RecipeCard
                         key={`${recipe.label}-${index}`}
-                        label={recipe.label}
-                        image={recipe.image}
-                        url={recipe.url}
+                        recipe={recipe}
                         />
                     )}
                 

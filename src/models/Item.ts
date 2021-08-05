@@ -2,12 +2,7 @@ export interface Recipe {
     label: string;
     url: string;
     calories?: number;
-    image?: string;   
+    image?: string;
+    heathLabels?: string[];   
 }
 
-interface Practice {
-    label: string;
-    url: string;
-    calories?: number;
-    image?: string;
-}

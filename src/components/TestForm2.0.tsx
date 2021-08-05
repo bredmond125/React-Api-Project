@@ -95,7 +95,7 @@ function TestForm() {
             </form>
         
             <h2>Search Results</h2>
-            <div className="RecipeCard-container">
+            {/* <div className="RecipeCard-container">
             {searchArray.map((recipe, index) => 
                 <RecipeCard
                 key={`${recipe.recipe.label}-${index}`}
@@ -104,7 +104,7 @@ function TestForm() {
                 url={recipe.recipe.url}
                 />
             )}
-            </div>
+            </div> */}
         </div>
     )
 }

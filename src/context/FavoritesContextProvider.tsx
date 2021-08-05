@@ -1,13 +1,14 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 import Favorites from "../components/Favorites";
 import { Props } from "../components/RecipeCard";
+import { Recipe } from "../models/Item";
 
 
 
 
 export interface FavoriteContextValue  {
     favorites: any[],
-    addFavorite: (newFavorite: Props) => void
+    addFavorite: (newFavorite: Recipe) => void
 }
 
 const defaultValue: FavoriteContextValue = {
@@ -24,7 +25,7 @@ export function FavoritesContextProvider({children}: {children: ReactNode}) {
     
 
 
-    function addFavorite(newFavorite: Props){
+    function addFavorite(newFavorite: Recipe){
         const prevFavorites = favorites
         prevFavorites.push(newFavorite)
         console.log(newFavorite);

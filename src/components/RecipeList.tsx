@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { fetchRecipeServices, RecipeResponse } from '../services/recipeService';
 import RecipeCard from './RecipeCard';
 import '../styles/RecipeList.css';
+import { Recipe } from '../models/Item';
 
 interface Props {
     title: string;
@@ -10,7 +11,7 @@ interface Props {
 
 function RecipeList({title, query}: Props) {
 
-    const [recipeArray, setRecipeArray] = useState<RecipeResponse[]>([]);
+    const [recipeArray, setRecipeArray] = useState<Recipe[]>([]);
 
     function createNewRecipeCategory(query: any) {
         const qValue = {
@@ -35,10 +36,9 @@ function RecipeList({title, query}: Props) {
             {recipeArray.map((recipe, index) => 
                 
                 <RecipeCard
-                key={`${recipe.recipe.label}-${index}`}
-                label={recipe.recipe.label}
-                image={recipe.recipe.image}
-                url={recipe.recipe.url}
+                key={`${recipe.label}-${index}`}
+                recipe={recipe}
+                
                 
                 />
             )}
