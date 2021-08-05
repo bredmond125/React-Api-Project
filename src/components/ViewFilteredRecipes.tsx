@@ -14,6 +14,7 @@ function ViewFilteredRecipes({filteredRecipes}: Props) {
                     <RecipeCard
                     key={`${recipe.label}-${index}`}
                     recipe={recipe}
+                    index={index}
                     
                     />
                 )}

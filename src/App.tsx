@@ -9,6 +9,7 @@ import { ModalContextProdiver } from './context/ModalContextProvider';
 import FilterRecipes from './components/FilterRecipes';
 import Favorites from './components/Favorites';
 import { FavoritesContextProvider } from './context/FavoritesContextProvider';
+import Description from './components/Description';
 
 function App() {
   return (
@@ -27,7 +28,10 @@ function App() {
               <Route path="/Favorites" exact>
                 <Favorites/>
               </Route>
-              </Switch>
+              <Route path="/Description" exact>
+              
+              </Route>
+            </Switch>
           </FavoritesContextProvider>
         </RecipeContextProvider>
     </Router>

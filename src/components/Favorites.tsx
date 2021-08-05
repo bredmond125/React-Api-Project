@@ -26,6 +26,7 @@ function Favorites() {
                         <RecipeCard
                         key={`${recipe.label}-${index}`}
                         recipe={recipe}
+                        index={index}
                         />
                     )}
                 

@@ -37,6 +37,7 @@ function RecipeList({title, query}: Props) {
                 <RecipeCard
                 key={`${recipe.recipe.label}-${index}`}
                 recipe={recipe}
+                index={index}
                 />
             )}
             </div>

@@ -1,16 +1,18 @@
 import { useContext, useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import { FavoritesContext } from '../context/FavoritesContextProvider';
 import { Recipe } from '../models/Item';
 import '../styles/RecipeCard.css';
 export interface Props {
     recipe: Recipe;
+    index: number;
 }
 
 
 
-function RecipeCard({recipe}: Props) {
+function RecipeCard({recipe, index}: Props) {
 
-   const {favorites, addFavorite} = useContext(FavoritesContext);
+   const {favorites, addFavorite, deleteFavorite} = useContext(FavoritesContext);
 
     const newFavorite = recipe;
     
@@ -21,6 +23,13 @@ function RecipeCard({recipe}: Props) {
        console.log(newFavorite)
        
    }
+
+   function handleDelete(index: number): any {
+       deleteFavorite(index);
+       console.log("helloo");
+       console.log(index)
+   }
+
    console.log(favorites);
    console.log(recipe);
    console.log(recipe.recipe.label);
@@ -42,6 +51,15 @@ function RecipeCard({recipe}: Props) {
                 </div>
                 <div>
                    <button onClick={() => {handleAdd(newFavorite)}}>Add Favorite</button>
+                   <button onClick={() => {handleDelete(index)}}>Delete Favorite</button>
+                </div>
+                <div>
+                    {/* <NavLink to={{
+                        pathname: "/Description",
+                        aboutProps: {recipe: {recipe}}
+                        }} > 
+                            <button>Description</button>
+                    </NavLink>   */}
                 </div>
             </div>
 
@@ -50,3 +68,7 @@ function RecipeCard({recipe}: Props) {
 }
 
 export default RecipeCard;
+
+function deleteFavorite(index: number) {
+    throw new Error('Function not implemented.');
+}
