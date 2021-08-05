@@ -22,21 +22,23 @@ function RecipeCard({recipe}: Props) {
        
    }
    console.log(favorites);
+   console.log(recipe);
+   console.log(recipe.recipe.label);
   
 
     return(
         <div className="RecipeCard">
             <div className="card-container">
                 <div className="image-container">
-                    <img src={recipe.image} alt="Food"/>
+                    <img src={recipe.recipe.image} alt="Food"/>
                 </div>
                 <div className="label-container">
                     <p className="card-label">
-                        {recipe.label}
+                        {recipe.recipe.label}
                     </p>
                 </div>
                 <div className="link-container">
-                    <a href={recipe.url} target="_blank">Original Recipe</a>  
+                    <a href={recipe.recipe.url} target="_blank">Original Recipe</a>  
                 </div>
                 <div>
                    <button onClick={() => {handleAdd(newFavorite)}}>Add Favorite</button>

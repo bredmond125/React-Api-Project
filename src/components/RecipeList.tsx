@@ -27,8 +27,7 @@ function RecipeList({title, query}: Props) {
     useEffect(() => {
         createNewRecipeCategory(query); 
     }, [query] );
-   
- 
+    
     return (
         <section className="RecipeList">
             <h3 className="RecipeList__title">{title}</h3>
@@ -36,10 +35,8 @@ function RecipeList({title, query}: Props) {
             {recipeArray.map((recipe, index) => 
                 
                 <RecipeCard
-                key={`${recipe.label}-${index}`}
+                key={`${recipe.recipe.label}-${index}`}
                 recipe={recipe}
-                
-                
                 />
             )}
             </div>

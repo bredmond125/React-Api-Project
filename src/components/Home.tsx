@@ -22,7 +22,7 @@ function Home() {
         <main className="Home" >
             <div className="FormModal" style={{ display: showForm ? "block" : "none"}} >
             
-            <SearchForm/>
+          
         
           </div>
 
