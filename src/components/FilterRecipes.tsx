@@ -63,11 +63,14 @@ function FilterRecipes() {
 
     return (
         <div className="filter-form">
+            <div className="form-container">
             <form>
-                <div className="text-search-container">
+                <h2 id="form-title">Search Recipes</h2>
+                <div className="text-search-container form-section">
                     <input placeholder="food" onChange={ (e) => setFood(e.target.value) }/>
                 </div>
-                <div className="cuisine-container">
+                <p className="filter-title">Filter by Cuisine</p>
+                <div className="cuisine-container form-section">
                     <input type="radio" name="cuisine" id="American" value="American" onChange={ (e) => setCuisine(e.target.value) }/>
                     <label htmlFor="American">American</label>
                     <input type="radio" name="cuisine" id="French" value="French" onChange={ (e) => setCuisine(e.target.value) }/>
@@ -83,7 +86,8 @@ function FilterRecipes() {
                     <input type="radio" name="cuisine" id="Japanese" value="Japanese" onChange={ (e) => setCuisine(e.target.value) }/>
                     <label htmlFor="Mexican">Japanese</label>
                 </div>
-                <div className="meal-container">
+                <p className="filter-title">Filter by Meal</p>
+                <div className="meal-container form-section">
                     <input type="radio" name="meal" id="Breakfast" value="Breakfast" onChange={ (e) => setMeal(e.target.value) }/>
                     <label htmlFor="Breakfast">Breakfast</label>
                     <input type="radio" name="meal" id="Lunch" value="Lunch" onChange={ (e) => setMeal(e.target.value) }/>
@@ -95,13 +99,15 @@ function FilterRecipes() {
                     <input type="radio" name="meal" id="Teatime" value="Teatime" onChange={ (e) => setMeal(e.target.value) }/>
                     <label htmlFor="Dinner">Teatime</label>
                 </div>
-                <div className="calories-container">
+                <p className="filter-title">Filter by Calories</p>
+                <div className="calories-container form-section">
                     <input type="range" id="calories" name="calories" min="0" max="5000" onChange={ (e) => setCalories(Number(e.target.value)) } />
                     <label htmlFor="calories">Calories</label>
                 </div>
 
                 <button onClick={generateSearch}>Search</button>
             </form>
+            </div>
             <ViewFilteredRecipes filteredRecipes={searchArray} />
         </div>
     )
