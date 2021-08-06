@@ -11,6 +11,8 @@ import Favorites from './components/Favorites';
 import { FavoritesContextProvider } from './context/FavoritesContextProvider';
 import Description from './components/Description';
 import { DetailsContextProvider } from './context/DetailsContextProvider';
+import RandomCards from './components/RandomCards';
+import TinderCards from './components/TinderCards';
 
 function App() {
   return (
@@ -32,6 +34,10 @@ function App() {
               </Route>
               <Route path="/Description" exact>
                 <Description/>
+              </Route>
+              <Route path="/Random" exact>
+                <TinderCards />
+                {/* <RandomCards /> */}
               </Route>
             </Switch>
             </DetailsContextProvider>

@@ -31,7 +31,7 @@ function Header() {
                     <NavLink to="/Favorites"><PlaylistPlaySharpIcon className="Fav"/></NavLink>
                     <p className="Counter">{count}</p>
                     <NavLink to="/FilterRecipes"><SearchRoundedIcon className="Search"/></NavLink>
-
+                    <NavLink to="/Random"><div>Find A Food Match Here</div></NavLink>
                    {/* <button className="ButtonModal" onClick={toggleModal}><SearchRoundedIcon/></button> */}
                 </div>
                 

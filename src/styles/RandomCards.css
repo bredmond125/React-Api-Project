@@ -1,0 +1,29 @@
+.randomCard {
+  position: relative;
+  width: 500px;
+  padding: 20px;
+  max-width: 85vw;
+  height: 50vh;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0px 2px 7px 0px rgba(255, 255, 255, 0.3);
+}
+
+.randomCard > h3 {
+  position: absolute;
+  bottom: 10px;
+  border-radius: 10px;
+  padding: 2px;
+  background-color: rgba(0, 0, 0, 0.386);
+}
+
+.random-cards-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+}
+
+.swipe {
+  position: absolute;
+}
