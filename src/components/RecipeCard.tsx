@@ -33,7 +33,7 @@ function RecipeCard({recipe, index}: Props) {
         console.log(findFav);
 
         if(findFav) {
-            setFoundFav(true);
+            setFoundFav(!foundFav);
         }
     }
 
@@ -102,7 +102,7 @@ function RecipeCard({recipe, index}: Props) {
                         <div>
                             {/* <button style={foundFav ? {display: 'none'} : {display: 'block'}} onClick={() => {handleAdd(newFavorite)}}>Add Favorite</button> */}
                             <div className="stylish-button" style={foundFav ? {display: 'none'} : {display: 'block'}} onClick={() => {handleAdd(newFavorite)}}>
-                                <PlaylistAddIcon style={foundFav ? {display: 'none'} : {display: 'block'}} onClick={() => {handleAdd(newFavorite)}}/>
+                                <PlaylistAddIcon/>
                             </div>
                             {/* <button style={foundFav ? {display: 'block'} : {display: 'none'}} onClick={() => {handleDelete(index)}}>Delete Favorite</button> */}
                             <HighlightOffSharpIcon style={foundFav ? {display: 'block'} : {display: 'none'}} onClick={() => {handleDelete(index)}}/>
