@@ -75,7 +75,7 @@ function RecipeCard({recipe, index}: Props) {
    }
 
    function handleCollapse() {
-        collapse ? setCollapse(false) : setCollapse(true);
+        setCollapse(!collapse);
         console.log(collapse);
 
         if (height === "min") {
@@ -84,12 +84,13 @@ function RecipeCard({recipe, index}: Props) {
             setHeight('min');
         }
    }
+   
 
 
     return(
         <div className="RecipeCard">
-            <div className="card-container" onClick={handleCollapse}>
-                <div className="image-container">
+            <div className="card-container">
+                <div className="image-container" onClick={handleCollapse}>
                     <img src={recipe.recipe.image} alt="Food"/>
                 </div>
                 <div className="label-container">
