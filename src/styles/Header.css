@@ -6,6 +6,7 @@ div.Home {
 }
 div.Extras{
     margin-right: 7%;
+    display: flex;
 }
 
 svg.MuiSvgIcon-root.HomeIcon {
@@ -16,15 +17,18 @@ svg.MuiSvgIcon-root.HomeIcon {
    
 }
 svg.MuiSvgIcon-root.Fav {
-    height: 35px;
-    width: 35px;
-    fill: red;
-    padding: 15px;
+    height: 50px;
+    width: 50px;
+    fill: grey;
+    padding: 15px, 2px, 15px, 15px;
 
 }
 svg.MuiSvgIcon-root.Search {
-    height: 35px;
-    width: 35px;
+    height: 50px;
+    width: 50px;
     fill: black;
-    padding: 15px
+    padding-left: 20px;
+}
+p.Counter { 
+    margin-top: 24px;
 }

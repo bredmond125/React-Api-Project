@@ -3,6 +3,8 @@ import { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { DetailsContext } from '../context/DetailsContextProvider';
 import { FavoritesContext } from '../context/FavoritesContextProvider';
+import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
+import HighlightOffSharpIcon from '@material-ui/icons/HighlightOffSharp';
 import { Recipe } from '../models/Item';
 import '../styles/RecipeCard.css';
 export interface Props {
@@ -83,8 +85,10 @@ function RecipeCard({recipe, index}: Props) {
                     <a href={recipe.recipe.url} target="_blank">Original Recipe</a>  
                 </div>
                 <div>
-                   <button style={foundFav ? {display: 'none'} : {display: 'block'}} onClick={() => {handleAdd(newFavorite)}}>Add Favorite</button>
-                   <button style={foundFav ? {display: 'block'} : {display: 'none'}} onClick={() => {handleDelete(index)}}>Delete Favorite</button>
+                   {/* <button style={foundFav ? {display: 'none'} : {display: 'block'}} onClick={() => {handleAdd(newFavorite)}}>Add Favorite</button> */}
+                   <PlaylistAddIcon style={foundFav ? {display: 'none'} : {display: 'block'}} onClick={() => {handleAdd(newFavorite)}}/>
+                   {/* <button style={foundFav ? {display: 'block'} : {display: 'none'}} onClick={() => {handleDelete(index)}}>Delete Favorite</button> */}
+                   <HighlightOffSharpIcon style={foundFav ? {display: 'block'} : {display: 'none'}} onClick={() => {handleDelete(index)}}/>
                 </div>
                 <div>
                     <NavLink to="/Description" onClick={() => {handleDetails(newFavorite)}}>View Description</NavLink>

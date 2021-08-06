@@ -5,16 +5,18 @@ import FavoriteRoundedIcon from '@material-ui/icons/FavoriteRounded';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import { useContext, useState } from "react";
 import { ModalContext } from "../context/ModalContextProvider";
+import { FavoritesContext } from "../context/FavoritesContextProvider";
+import PlaylistPlaySharpIcon from '@material-ui/icons/PlaylistPlaySharp';
 
 
 
 function Header() {
-    const {showForm, toggleModal} = useContext(ModalContext);
     
-    // const [showToggle, setShowToggle] = useState(showForm);
-    
+    const {favorites, addFavorite, deleteFavorite, counter} = useContext(FavoritesContext);
 
-    console.log(showForm)
+
+
+    let count = counter;
 
    
 
@@ -26,10 +28,11 @@ function Header() {
                     <NavLink to="/"><FastfoodRoundedIcon className="HomeIcon" /></NavLink>
                 </div>
                 <div className="Extras">
-                    <NavLink to="/Favorites"><FavoriteRoundedIcon className="Fav"/></NavLink>
+                    <NavLink to="/Favorites"><PlaylistPlaySharpIcon className="Fav"/></NavLink>
+                    <p className="Counter">{count}</p>
                     <NavLink to="/FilterRecipes"><SearchRoundedIcon className="Search"/></NavLink>
 
-                   <button className="ButtonModal" onClick={toggleModal}><SearchRoundedIcon/></button>
+                   {/* <button className="ButtonModal" onClick={toggleModal}><SearchRoundedIcon/></button> */}
                 </div>
                 
                 

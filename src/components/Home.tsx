@@ -20,7 +20,7 @@ function Home() {
     
     return(
         <main className="Home" >
-            <div className="FormModal" style={{ display: showForm ? "block" : "none"}} >
+            {/* <div className="FormModal" style={{ display: showForm ? "block" : "none"}} >
             
           
         
@@ -28,7 +28,7 @@ function Home() {
 
             <TestForm />
             
-            
+             */}
             
           <RecipeList title='Pumpkin Season is Coming' query='pumpkin'/>
            {/* <RecipeList title='Because Greg Likes Peppers' query='pepper' /> */} 
