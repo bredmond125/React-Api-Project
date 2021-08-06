@@ -10,6 +10,7 @@ import FilterRecipes from './components/FilterRecipes';
 import Favorites from './components/Favorites';
 import { FavoritesContextProvider } from './context/FavoritesContextProvider';
 import Description from './components/Description';
+import { DetailsContextProvider } from './context/DetailsContextProvider';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
     <Router>
       <RecipeContextProvider>
         <FavoritesContextProvider>
+          <DetailsContextProvider>
           <Header/>
             <Route path="/" exact>
               <Home/>
@@ -29,9 +31,10 @@ function App() {
                 <Favorites/>
               </Route>
               <Route path="/Description" exact>
-              
+                <Description/>
               </Route>
             </Switch>
+            </DetailsContextProvider>
           </FavoritesContextProvider>
         </RecipeContextProvider>
     </Router>
