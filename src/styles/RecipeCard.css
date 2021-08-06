@@ -27,3 +27,6 @@
 .RecipeCard a {
   text-decoration: none;
 }
+button.Hide {
+  display: none;
+}

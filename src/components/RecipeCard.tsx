@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { DetailsContext } from '../context/DetailsContextProvider';
@@ -14,22 +15,48 @@ export interface Props {
 function RecipeCard({recipe, index}: Props) {
 
    const {favorites, addFavorite, deleteFavorite} = useContext(FavoritesContext);
-   const {details, showDetails} = useContext(DetailsContext)
+   const {details, showDetails} = useContext(DetailsContext);
+
+   const [foundFav, setFoundFav] = useState<Boolean>(false);
+
 
     const newFavorite = recipe;
+
+    function handleFindFav() {
+        let findFav = favorites.find(fav => fav.recipe.label === recipe.recipe.label);
+        console.log(findFav);
+
+        if(findFav) {
+            setFoundFav(true);
+        }
+    }
+
+    useEffect(() => {
+        handleFindFav();
+    }, [])
+    
+        
+    
+
+    
+
+    
     
 
    function handleAdd(newFavorite: Recipe): any {
-       addFavorite(newFavorite)
-       console.log("Works")
-       console.log(newFavorite)
+       addFavorite(newFavorite);
+       console.log("Works");
+       console.log(newFavorite);
+       handleFindFav();
+       
        
    }
 
    function handleDelete(index: number): any {
        deleteFavorite(index);
        console.log("helloo");
-       console.log(index)
+       console.log(index);
+       handleFindFav();
    }
 
    console.log(favorites);
@@ -56,8 +83,8 @@ function RecipeCard({recipe, index}: Props) {
                     <a href={recipe.recipe.url} target="_blank">Original Recipe</a>  
                 </div>
                 <div>
-                   <button onClick={() => {handleAdd(newFavorite)}}>Add Favorite</button>
-                   <button onClick={() => {handleDelete(index)}}>Delete Favorite</button>
+                   <button style={foundFav ? {display: 'none'} : {display: 'block'}} onClick={() => {handleAdd(newFavorite)}}>Add Favorite</button>
+                   <button style={foundFav ? {display: 'block'} : {display: 'none'}} onClick={() => {handleDelete(index)}}>Delete Favorite</button>
                 </div>
                 <div>
                     <NavLink to="/Description" onClick={() => {handleDetails(newFavorite)}}>View Description</NavLink>

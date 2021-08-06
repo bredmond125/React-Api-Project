@@ -4,7 +4,7 @@ export interface Recipe {
     url: string;
     calories?: number;
     image?: string;
-    heathLabels?: string[];  
+    heathLabels?: string[];
 } 
 }
 

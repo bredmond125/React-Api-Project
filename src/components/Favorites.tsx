@@ -15,6 +15,9 @@ function Favorites() {
     
     
     console.log(favorites);
+
+
+    
     
 
 
