@@ -5,6 +5,7 @@ import { DetailsContext } from '../context/DetailsContextProvider';
 import { FavoritesContext } from '../context/FavoritesContextProvider';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 import HighlightOffSharpIcon from '@material-ui/icons/HighlightOffSharp';
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import { Recipe } from '../models/Item';
 import '../styles/RecipeCard.css';
 export interface Props {
@@ -20,6 +21,9 @@ function RecipeCard({recipe, index}: Props) {
    const {details, showDetails} = useContext(DetailsContext);
 
    const [foundFav, setFoundFav] = useState<Boolean>(false);
+
+   const [collapse, setCollapse] = useState<Boolean>(true);
+   const [height, setHeight] = useState<String>('min');
 
 
     const newFavorite = recipe;
@@ -70,9 +74,21 @@ function RecipeCard({recipe, index}: Props) {
         console.log('hi')
    }
 
+   function handleCollapse() {
+        collapse ? setCollapse(false) : setCollapse(true);
+        console.log(collapse);
+
+        if (height === "min") {
+            setHeight('max'); 
+        } else {
+            setHeight('min');
+        }
+   }
+
+
     return(
         <div className="RecipeCard">
-            <div className="card-container">
+            <div className="card-container" onClick={handleCollapse}>
                 <div className="image-container">
                     <img src={recipe.recipe.image} alt="Food"/>
                 </div>
@@ -81,23 +97,33 @@ function RecipeCard({recipe, index}: Props) {
                         {recipe.recipe.label}
                     </p>
                 </div>
-                <div className="link-container">
-                    <a href={recipe.recipe.url} target="_blank">Original Recipe</a>  
-                </div>
-                <div>
-                   {/* <button style={foundFav ? {display: 'none'} : {display: 'block'}} onClick={() => {handleAdd(newFavorite)}}>Add Favorite</button> */}
-                   <PlaylistAddIcon style={foundFav ? {display: 'none'} : {display: 'block'}} onClick={() => {handleAdd(newFavorite)}}/>
-                   {/* <button style={foundFav ? {display: 'block'} : {display: 'none'}} onClick={() => {handleDelete(index)}}>Delete Favorite</button> */}
-                   <HighlightOffSharpIcon style={foundFav ? {display: 'block'} : {display: 'none'}} onClick={() => {handleDelete(index)}}/>
-                </div>
-                <div>
-                    <NavLink to="/Description" onClick={() => {handleDetails(newFavorite)}}>View Description</NavLink>
-                    {/* <NavLink to={{
-                        pathname: "/Description",
-                        state: {recipe: {recipe}}
-                        }} > 
-                            <button>Description</button>
-                    </NavLink>   */}
+                <div className={`collapsible ${height}height`} style={collapse ? {display: 'none'} : {display: 'block'}}>
+                   <div className="buttons">
+                        <div>
+                            {/* <button style={foundFav ? {display: 'none'} : {display: 'block'}} onClick={() => {handleAdd(newFavorite)}}>Add Favorite</button> */}
+                            <div className="stylish-button" style={foundFav ? {display: 'none'} : {display: 'block'}} onClick={() => {handleAdd(newFavorite)}}>
+                                <PlaylistAddIcon style={foundFav ? {display: 'none'} : {display: 'block'}} onClick={() => {handleAdd(newFavorite)}}/>
+                            </div>
+                            {/* <button style={foundFav ? {display: 'block'} : {display: 'none'}} onClick={() => {handleDelete(index)}}>Delete Favorite</button> */}
+                            <HighlightOffSharpIcon style={foundFav ? {display: 'block'} : {display: 'none'}} onClick={() => {handleDelete(index)}}/>
+                        </div>
+                        <div>
+                            <NavLink to="/Description" onClick={() => {handleDetails(newFavorite)}}>
+                                <div className="stylish-button" title="View Details">
+                                    <KeyboardArrowDownIcon className="stylish-icon"/>
+                                </div>
+                            </NavLink>
+                            {/* <NavLink to={{
+                            pathname: "/Description",
+                            state: {recipe: {recipe}}
+                            }} > 
+                                <button>Description</button>
+                            </NavLink>   */}
+                        </div>
+                    </div>
+                     <div className="link-container">
+                        <a className="stylish-link" href={recipe.recipe.url} target="_blank">Original Recipe</a>  
+                    </div>
                 </div>
             </div>
 

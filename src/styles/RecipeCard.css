@@ -1,27 +1,34 @@
 .RecipeCard .card-container {
-  border: solid white 1px;
-  border-radius: 15px;
-  box-shadow: 0px 0px 10px #fff;
-  width: 300px;
-  height: 400px;
+  width: 250px;
+  min-height: 270px;
+  max-height: 370px;
   font-family: "Sriracha";
-  background-color: rgba(245, 245, 245, 0.934);
-  color: black;
+  background-color: rgb(36, 35, 35);
+  color: white;
   text-align: center;
   margin: 10px 10px;
   object-fit: contain;
   transition: transform 450ms;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .RecipeCard .card-container:hover {
   transform: scale(1.08);
+  background-color: rgb(65, 63, 63);
+}
+
+.RecipeCard .image-container {
+  width: 250px;
+  height: 210px;
 }
 
 .RecipeCard img {
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
   width: 200px;
   height: 200px;
+  /* box-shadow: 0px 0px 5px #fff; */
+  margin-top: 10px;
+  border-radius: 5px;
 }
 
 .RecipeCard a {
@@ -29,4 +36,67 @@
 }
 button.Hide {
   display: none;
+}
+
+.RecipeCard .label-container {
+  height: 60px;
+}
+
+.RecipeCard .card-label {
+  margin: 0px;
+}
+
+.RecipeCard .stylish-button {
+  height: 30px;
+  width: 30px;
+  border: solid rgb(205, 203, 203) 1px;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.RecipeCard .stylish-button:hover {
+  border: solid white 1px;
+}
+
+.RecipeCard .stylish-icon {
+  color: white;
+}
+
+.RecipeCard .collapsible {
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.RecipeCard .buttons {
+  display: flex;
+  flex-direction: row;
+  width: 100px;
+  justify-content: space-around;
+  margin: auto;
+}
+
+.RecipeCard .link-container {
+  margin-top: 5px;
+}
+
+.RecipeCard .stylish-link {
+  color: rgb(205, 203, 203);
+}
+
+.RecipeCard .stylish-link:active {
+  color: white;
+}
+
+.RecipeCard .stylish-link:hover {
+  color: white;
+}
+
+.RecipeCard .min {
+  max-height: 0px;
+}
+
+.RecipeCard .max {
+  max-height: 100px;
 }
