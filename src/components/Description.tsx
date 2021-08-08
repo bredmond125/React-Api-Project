@@ -1,10 +1,12 @@
 import "../styles/Detail.css";
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Recipe } from '../models/Item'
 import { DetailsContext } from '../context/DetailsContextProvider';
 import { FavoritesContext } from "../context/FavoritesContextProvider";
 import { useState } from "react";
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
+import KeyboardReturnSharpIcon from '@material-ui/icons/KeyboardReturnSharp';
+import { NavLink } from "react-router-dom";
 
 export interface Props {
     recipe: Recipe;
@@ -31,6 +33,9 @@ function Description() {
             setFoundFav(true);
         }
     }
+    useEffect(() => {
+        handleFindFav();
+    }, [])
 
     
     function handleAdd(newFavorite: Recipe): any {
@@ -38,6 +43,7 @@ function Description() {
          //    console.log(newFavorite);
             handleFindFav();    
         }
+    
    
 
 
@@ -110,14 +116,25 @@ function Description() {
                 <div className="LineFive">
                     <span>To Make:</span> {newDetails.recipe.ingredientLines}
                 </div>
+                <div className="BottomBox">
+                    <div className="stylish-button" style={foundFav ? {display: 'none'} : {display: 'block'}} onClick={() => {handleAdd(newDetails)}}>
+                        <PlaylistAddIcon className="Add" />
+                    </div>
+                    <div>
+                        <NavLink to="/"><KeyboardReturnSharpIcon className="Return"/></NavLink>
+                    </div>
+                        
+                        
+                </div>
+
+            </div>
 
                 
-            </div>
-            <div className="stylish-button" style={foundFav ? {display: 'none'} : {display: 'block'}} onClick={() => {handleAdd(newDetails)}}>
-                        <PlaylistAddIcon />
-                            </div>
-            
         </div>
+            
+            
+            
+        
     )
 }
 

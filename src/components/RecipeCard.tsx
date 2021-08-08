@@ -37,6 +37,7 @@ function RecipeCard({recipe, index}: Props) {
         if(findFav) {
             setFoundFav(true);
         }
+        
     }
 
     useEffect(() => {
@@ -55,6 +56,7 @@ function RecipeCard({recipe, index}: Props) {
        deleteFavorite(index);
     //    console.log(index);
        handleFindFav();
+       setFoundFav(!foundFav);
    }
 
 //    console.log(favorites);

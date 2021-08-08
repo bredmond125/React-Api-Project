@@ -70,7 +70,6 @@ div.LineFour {
 }
 div.LineFive {
     background-color: whitesmoke;
-    border-bottom: blue;
     border-style: solid;
     border-width: .3px;
     text-align: left;
@@ -78,4 +77,31 @@ div.LineFive {
 }
 span {
     background-color: yellow;
+}
+div.BottomBox {
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: black;
+    
+}
+.MuiSvgIcon-root.Add {
+    fill: gray;
+    height: 20%;
+    width: 20%;
+    padding-left: 60%;
+}
+.MuiSvgIcon-root.Return {
+    fill: gray;
+    height: 20%;
+    width: 20%;
+    padding-right: 60%;
+}
+.Add:hover {
+    color: red;
+}
+.Return:hover {
+    color: royalblue;
 }
