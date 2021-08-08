@@ -2,8 +2,7 @@ import { createContext, ReactNode, useEffect, useState } from "react";
 
 export interface ModalContextValue  {
     showForm: boolean;
-    toggleModal(): any;
-   
+    toggleModal(): any; 
 }
 
 const defaultValue: ModalContextValue  = {

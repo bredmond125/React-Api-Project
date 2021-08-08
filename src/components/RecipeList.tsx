@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { fetchRecipeServices, RecipeResponse } from '../services/recipeService';
+import { fetchRecipeServices } from '../services/recipeService';
 import RecipeCard from './RecipeCard';
 import '../styles/RecipeList.css';
 import { Recipe } from '../models/Item';
 
+//PROPS
 interface Props {
     title: string;
     query: string;

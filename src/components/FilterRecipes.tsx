@@ -3,21 +3,21 @@ import { useState } from 'react';
 import ViewFilteredRecipes from './ViewFilteredRecipes';
 import '../styles/ViewFilteredRecipes.css';
 
-
-
 function FilterRecipes() {
-
+    //required params for api
     const recipeApiUrl = 'https://api.edamam.com/api/recipes/v2?';
     const appType = 'public';
     const appId = '045d35b5';
     const appKey = process.env.REACT_APP_RECIPE_API_KEY;
 
+    //optional params for api
     const [food, setFood] = useState('food');
     const [cuisine, setCuisine] = useState('');
     const [meal, setMeal] = useState('');
     const [calories, setCalories] = useState(0);
     const [searchArray, setSearchArray] = useState<any[]>([]);
     
+    //param object to be added to 
     let paramObject = {
             app_id: appId,
             app_key: appKey,
@@ -37,6 +37,7 @@ function FilterRecipes() {
         calories: `0-${calories}`
     }
 
+    //search function on form submit
     const generateSearch = (e: any): void => {
         
         e.preventDefault();

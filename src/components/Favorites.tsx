@@ -1,29 +1,17 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import {FavoritesContext } from "../context/FavoritesContextProvider";
 import RecipeCard from "./RecipeCard";
-
-
-
-
-
+import '../styles/ViewFilteredRecipes.css';
 
 
 function Favorites() {
 
-    const {favorites, addFavorite} = useContext(FavoritesContext);
-
-    
-    
-    console.log(favorites);
-
-
-    
-    
-
+    const {favorites} = useContext(FavoritesContext);
+    //console.log(favorites);
 
     return (
         <div className="Favorites">
-            <div className="RecipeCard-container">
+            <div className="RecipeCard-container filtered-recipes-container">
                  
                     {favorites.map((recipe, index) => 
                         <RecipeCard
@@ -32,8 +20,6 @@ function Favorites() {
                         index={index}
                         />
                     )}
-                
-                
             </div>
 
         </div>

@@ -1,7 +1,6 @@
 import { createContext, ReactNode, useState } from "react";
 import { Recipe } from "../models/Item";
 
-
 export interface DetailsContextValue {
     details: any
     showDetails: (detailsRecipe: Recipe) => void
@@ -20,10 +19,8 @@ export function DetailsContextProvider({children}: {children: ReactNode}) {
 
     function showDetails(detailsRecipe: Recipe) {
        setDetails(detailsRecipe);
-       console.log(details)
+    //    console.log(details)
     }
-
-    
 
     return (
         <DetailsContext.Provider value={{details, showDetails}}>

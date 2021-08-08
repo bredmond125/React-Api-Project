@@ -1,6 +1,7 @@
 import React from 'react'
 import RecipeCard from './RecipeCard'
 
+//PROPS
 export interface Props {
     filteredRecipes: any[];
 }

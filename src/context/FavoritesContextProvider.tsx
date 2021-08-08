@@ -1,9 +1,5 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
-import Favorites from "../components/Favorites";
-import { Props } from "../components/RecipeCard";
+import { createContext, ReactNode, useState } from "react";
 import { Recipe } from "../models/Item";
-
-
 
 
 export interface FavoriteContextValue  {
@@ -29,8 +25,6 @@ export function FavoritesContextProvider({children}: {children: ReactNode}) {
     const[counter, setCounter] = useState<number>(0);
 
     
-
-
     function addFavorite(newFavorite: Recipe){
         const prevFavorites = favorites
         prevFavorites.push(newFavorite)

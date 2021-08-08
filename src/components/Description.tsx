@@ -1,7 +1,6 @@
 import "../styles/Detail.css";
 import React, { useContext } from 'react'
 import { Recipe } from '../models/Item'
-import {useLocation} from 'react-router-dom'
 import { DetailsContext } from '../context/DetailsContextProvider';
 
 export interface Props {
@@ -11,21 +10,16 @@ export interface Props {
 function Description() {
 
     const {details, showDetails} = useContext(DetailsContext)
-
-    // const location = useLocation();
-    // const recipe = location.recipe
     
     const newDetails = details;
 
     let healthInfo = newDetails.recipe.healthLabels;
 
-   
-
     let shortHeath = [];
     for(let i = 0; i <= 7; i++){
         shortHeath.push(healthInfo[i]);
-
     }
+
     let healthDetail = shortHeath.join(", ")
 
     let dishType = newDetails.recipe.dishType;
@@ -38,11 +32,6 @@ function Description() {
     let finalCal = Math.round(cals);
 
     let img = newDetails.recipe.image;
-
-    
-
-
-
     
     return (
         <div className="Description">

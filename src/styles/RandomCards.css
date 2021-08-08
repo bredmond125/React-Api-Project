@@ -1,9 +1,10 @@
 .randomCard {
   position: relative;
-  width: 500px;
+  width: 300px;
   padding: 20px;
-  max-width: 85vw;
-  height: 50vh;
+  max-width: 70vw;
+  height: 300px;
+  max-height: 50vh;
   border-radius: 20px;
   background-size: cover;
   background-position: center;

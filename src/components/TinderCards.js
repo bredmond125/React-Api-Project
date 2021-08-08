@@ -10,7 +10,7 @@ import '../styles/RandomCards.css';
 
 function RandomCards() {
     const [randomArray, setRandomArray] = useState([]);
-    const {favorites, addFavorite, deleteFavorite} = useContext(FavoritesContext);
+    const { addFavorite } = useContext(FavoritesContext);
 
     const [lastDirection, setLastDirection] = useState();
 
@@ -76,9 +76,6 @@ function RandomCards() {
     useEffect(() => {
         getRandomRecipes();
     }, [] );
-
-    
-
 
     return (
         <div className="RandomCards">
