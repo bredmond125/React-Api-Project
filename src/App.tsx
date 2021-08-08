@@ -10,15 +10,17 @@ import { FavoritesContextProvider } from './context/FavoritesContextProvider';
 import Description from './components/Description';
 import { DetailsContextProvider } from './context/DetailsContextProvider';
 import TinderCards from './components/TinderCards';
+import Footer from './components/Footer';
 
 function App() {
   return (
-
+    <div className="App">
     <Router>
       <RecipeContextProvider>
         <FavoritesContextProvider>
           <DetailsContextProvider>
           <Header/>
+          <div className="main-content">
             <Route path="/" exact>
               <Home/>
             </Route>
@@ -36,12 +38,13 @@ function App() {
                 <TinderCards />
               </Route>
             </Switch>
+            </div>
             </DetailsContextProvider>
           </FavoritesContextProvider>
         </RecipeContextProvider>
     </Router>
     
-      
+    </div> 
     
         
     

@@ -1,34 +1,51 @@
 nav.Nav {
-    display: flex;
+  display: flex;
 }
 div.Home {
-    flex: 1;
+  flex: 1;
 }
-div.Extras{
-    margin-right: 7%;
-    display: flex;
+div.Extras {
+  margin-right: 7%;
+  display: flex;
 }
 
 svg.MuiSvgIcon-root.HomeIcon {
-    height: 60px;
-    width: 60px;
-    padding: 15px;
-    fill: blue;
-   
+  height: 60px;
+  width: 60px;
+  padding: 15px;
+  fill: blue;
 }
 svg.MuiSvgIcon-root.Fav {
-    height: 50px;
-    width: 50px;
-    fill: grey;
-    padding: 15px, 2px, 15px, 15px;
+  height: 50px;
+  width: 50px;
+  fill: grey;
+  padding: 15px, 2px, 15px, 15px;
+}
 
+svg.MuiSvgIcon-root.Fav:hover {
+  fill: white;
 }
+
 svg.MuiSvgIcon-root.Search {
-    height: 50px;
-    width: 50px;
-    fill: grey;
-    padding-left: 20px;
+  height: 50px;
+  width: 50px;
+  fill: grey;
+  padding-left: 20px;
 }
-p.Counter { 
-    margin-top: 24px;
+
+svg.MuiSvgIcon-root.Search:hover {
+  fill: white;
+}
+
+p.Counter {
+  margin-top: 24px;
+}
+
+#tinder-link {
+  color: gray;
+  text-decoration: none;
+}
+
+#tinder-link:hover {
+  color: white;
 }

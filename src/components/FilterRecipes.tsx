@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import ViewFilteredRecipes from './ViewFilteredRecipes';
 import '../styles/ViewFilteredRecipes.css';
 
@@ -16,6 +16,7 @@ function FilterRecipes() {
     const [meal, setMeal] = useState('');
     const [calories, setCalories] = useState(0);
     const [searchArray, setSearchArray] = useState<any[]>([]);
+
     
     //param object to be added to 
     let paramObject = {
@@ -38,7 +39,7 @@ function FilterRecipes() {
     }
 
     //search function on form submit
-    const generateSearch = (e: any): void => {
+    const generateSearch = (e: FormEvent): void => {
         
         e.preventDefault();
         
@@ -60,10 +61,15 @@ function FilterRecipes() {
                 console.log(response.data.hits);
                 setSearchArray(response.data.hits);
             }) 
+
+         setCuisine('');
+         setMeal('');
+         setCalories(0);   
+         console.log('are you still there?');
     }
 
     return (
-        <div className="filter-form">
+        <div className="filter-form" onSubmit={generateSearch}>
             <div className="form-container">
             <form>
                 <h2 id="form-title">Search Recipes</h2>
@@ -102,11 +108,11 @@ function FilterRecipes() {
                 </div>
                 <p className="filter-title">Filter by Calories</p>
                 <div className="calories-container form-section">
-                    <input type="range" id="calories" name="calories" min="0" max="5000" onChange={ (e) => setCalories(Number(e.target.value)) } />
+                    <input type="range" id="calories" name="calories" min="0" max="5000" value={calories} onChange={ (e) => setCalories(Number(e.target.value)) } />
                     <label htmlFor="calories">Calories</label>
                 </div>
 
-                <button onClick={generateSearch}>Search</button>
+                <button type="submit">Search</button>
             </form>
             </div>
             <ViewFilteredRecipes filteredRecipes={searchArray} />

@@ -13,6 +13,7 @@ function RandomCards() {
     const { addFavorite } = useContext(FavoritesContext);
 
     const [lastDirection, setLastDirection] = useState();
+    let foundIndex;
 
     
 
@@ -24,23 +25,52 @@ function RandomCards() {
 
     }
 
+    function findIndex(fav) {
+        foundIndex = randomArray.findIndex(random => random.recipe.label === fav);
+        console.log(fav);
+        return foundIndex;
+    }
+
+    function deleteRandom(index) {      
+        setRandomArray(prevRandom => [...prevRandom.slice(0, index), ...prevRandom.slice(index+1)]);
+        return randomArray;
+    }
+
+
     const swiped = (direction, nameToDelete) => {
         console.log('removing: ' + nameToDelete)
         setLastDirection(direction);
         console.log(direction);
         
         console.log(randomArray);
-        console.log(randomArray[1].recipe.label);
-        let stringLabel = (String(nameToDelete.toLowerCase()));
-        
         if (direction === 'right') {
             addFavorite(findRandomRecipe(nameToDelete));
         }
-        
     }
 
     const outOfFrame = (name) => {
-        console.log(name + ' left the screen!')
+
+        
+
+        console.log(name + ' left the screen!');
+        
+      
+        // findIndex(name);
+        // console.log(findIndex(name));
+        // console.log(typeof(foundIndex));
+        // deleteRandom(foundIndex);
+  
+        randomArray.pop();
+        console.log(randomArray);
+
+        if (randomArray.length === 0) {
+
+                    getRandomRecipes();
+                    console.log(randomArray);
+                    console.log('reset!');
+                }
+
+
     }
 
 
@@ -67,15 +97,12 @@ function RandomCards() {
             }) 
     }
 
-    // if (randomArray.length === 0) {
-
-    //     getRandomRecipes();
-    //     console.log(randomArray);
-    // }
-
+   
     useEffect(() => {
         getRandomRecipes();
     }, [] );
+
+  
 
     return (
         <div className="RandomCards">

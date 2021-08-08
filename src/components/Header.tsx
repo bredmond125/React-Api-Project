@@ -24,7 +24,7 @@ function Header() {
                     <NavLink to="/Favorites"><PlaylistPlaySharpIcon className="Fav"/></NavLink>
                     <p className="Counter">{count}</p>
                     <NavLink to="/FilterRecipes"><SearchRoundedIcon className="Search"/></NavLink>
-                    <NavLink to="/Random" id="tinder-link"><div>Find A Food Match Here</div></NavLink>
+                    <NavLink to="/Random" id="tinder-link"><div>Find A Food Match</div></NavLink>
                 </div>
                 
             </nav>
