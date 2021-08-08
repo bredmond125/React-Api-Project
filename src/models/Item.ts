@@ -7,6 +7,7 @@ export interface Recipe {
         heathLabels?: string[];
         dishType?: string[];
         dietLabels?: string[];
+        yield?: number;
     } 
 }
 
