@@ -1,8 +1,21 @@
+
+
 nav.Nav {
   display: flex;
 }
 div.Home {
   flex: 1;
+}
+#home-link {
+  text-decoration: none;
+  
+}
+h1 {
+  font-size: 54px;
+  background: -webkit-linear-gradient(rgb(199, 48, 38), #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 5px;
 }
 div.Extras {
   margin-right: 7%;
@@ -14,17 +27,22 @@ svg.MuiSvgIcon-root.HomeIcon {
   width: 60px;
   padding: 15px;
   fill: blue;
+  
 }
 svg.MuiSvgIcon-root.Fav {
   height: 50px;
   width: 50px;
-  fill: grey;
   padding: 15px, 2px, 15px, 15px;
+  fill: gray;
+  
+  
 }
-
 svg.MuiSvgIcon-root.Fav:hover {
   fill: white;
 }
+
+
+
 
 svg.MuiSvgIcon-root.Search {
   height: 50px;
