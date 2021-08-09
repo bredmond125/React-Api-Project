@@ -11,6 +11,7 @@ function Favorites() {
 
     return (
         <div className="Favorites">
+            <h2>Favorites</h2>
             <div className="RecipeCard-container filtered-recipes-container">
                  
                     {favorites.map((recipe, index) => 

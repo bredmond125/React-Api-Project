@@ -106,7 +106,7 @@ function RandomCards() {
 
     return (
         <div className="RandomCards">
-            <h2>Random Cards</h2>
+            <h2>Find Your New Favorite Recipe</h2>
             <div className="random-cards-container">
                 {randomArray.map((randomCard) => (
                     <TinderCard
