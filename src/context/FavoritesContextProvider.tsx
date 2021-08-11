@@ -6,14 +6,14 @@ export interface FavoriteContextValue  {
     favorites: any[],
     addFavorite: (newFavorite: Recipe) => void,
     deleteFavorite: (index: number) => void,
-    counter: number;
+    
 }
 
 const defaultValue: FavoriteContextValue = {
     favorites: [],
     addFavorite: () => {},
     deleteFavorite: () => {},
-    counter: 0
+    
 }
 
 export const FavoritesContext = createContext(defaultValue);
@@ -22,7 +22,7 @@ export function FavoritesContextProvider({children}: {children: ReactNode}) {
 
     const [favorites, setFavorite] = useState<any[]>([])
 
-    const[counter, setCounter] = useState<number>(0);
+
 
     
     function addFavorite(newFavorite: Recipe){
@@ -32,14 +32,14 @@ export function FavoritesContextProvider({children}: {children: ReactNode}) {
         console.log(favorites);
         setFavorite(prevFavorites) 
         console.log(favorites);
-        setCounter(counter + 1)
+        
     }
 
     function deleteFavorite(index: number) {
         console.log(favorites);
       
         setFavorite(prevFavorites => [...prevFavorites.slice(0, index), ...prevFavorites.slice(index+1)]);
-        setCounter(counter - 1);
+        
     }
 
     // useEffect(() => {
@@ -48,7 +48,7 @@ export function FavoritesContextProvider({children}: {children: ReactNode}) {
     // }, [favorites]);
 
     return (
-        <FavoritesContext.Provider value={{favorites, addFavorite, deleteFavorite, counter}}>
+        <FavoritesContext.Provider value={{favorites, addFavorite, deleteFavorite}}>
             {children}
         </FavoritesContext.Provider>
     )

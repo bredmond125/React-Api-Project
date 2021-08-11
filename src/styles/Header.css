@@ -16,6 +16,8 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-top: 5px;
+  font-family: 'Martel Sans', sans-serif;
+  text-transform: uppercase;
 }
 div.Extras {
   margin-right: 7%;

@@ -10,9 +10,7 @@ import PlaylistPlaySharpIcon from '@material-ui/icons/PlaylistPlaySharp';
 function Header() {
     
     
-    const {counter} = useContext(FavoritesContext);
-
-    let count = counter;
+    
 
     return(
         <header className="Header">
@@ -23,7 +21,6 @@ function Header() {
                 </div>
                 <div className="Extras">
                     <NavLink to="/Favorites"><PlaylistPlaySharpIcon  className="Fav"/></NavLink>
-                    <p className="Counter">{count}</p>
                     <NavLink to="/FilterRecipes"><SearchRoundedIcon className="Search"/></NavLink>
                     <NavLink to="/Random" id="tinder-link"><div>Find A Food Match</div></NavLink>
                 </div>

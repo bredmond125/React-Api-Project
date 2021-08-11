@@ -10,7 +10,7 @@ import '../styles/RandomCards.css';
 
 function RandomCards() {
     const [randomArray, setRandomArray] = useState([]);
-    const { addFavorite } = useContext(FavoritesContext);
+    const {favorites, addFavorite, deleteFavorite } = useContext(FavoritesContext);
 
     const [lastDirection, setLastDirection] = useState();
     let foundIndex;
